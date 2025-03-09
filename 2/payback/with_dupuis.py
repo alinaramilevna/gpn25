@@ -3,18 +3,18 @@
 '''
 from math import ceil
 
-from consts import debit_in_barrel, electric_submersible_pumps_energy, e_price, esp_frequency_control_energy, \
+from consts import electric_submersible_pumps_energy, e_price, esp_frequency_control_energy, \
     esp_frequency_control_price, gaslift_energy, gaslift_price, discounting
+from tools import get_daily_by_dupuis
 
 
-def get_barrels_per_year() -> int:
+def get_barrels_per_year() -> float:
     # возьмем 365 дней в году
-    return debit_in_barrel * 365
+    return sum([get_daily_by_dupuis(t) for t in range(1, 366)])
 
 
-def get_barrels_per_month() -> int:
-    # возьмем 30 дней в месяце
-    return debit_in_barrel * 30
+def get_barrels_per_period(t) -> float:
+    return sum([get_daily_by_dupuis(i) for i in range(1, t + 1)])
 
 
 # ------------------------------------------------------
@@ -23,7 +23,7 @@ def get_barrels_per_month() -> int:
 def get_electric_submersible_pumps_cost() -> int:
     # 1. Переводим Дж в кВт·ч (1 кВт·ч = 3 600 000 Дж)
     # 2. Умножаем на стоимость электроэнергии
-    return ceil((electric_submersible_pumps_energy / 3_600_000) * e_price * get_barrels_per_year())
+    return ceil((electric_submersible_pumps_energy / 3_600_000) * e_price * get_barrels_per_period(365))
 
 
 def get_electric_submersible_pumps_PBP() -> float:
@@ -34,7 +34,7 @@ def get_electric_submersible_pumps_PBP() -> float:
 # ------------------------------------------------------
 
 def get_esp_frequency_control_cost() -> int:
-    return ceil((esp_frequency_control_energy / 3_600_000) * e_price * get_barrels_per_year())
+    return ceil((esp_frequency_control_energy / 3_600_000) * e_price * get_barrels_per_period(365))
 
 
 def get_esp_frequency_control_PBP() -> float:
@@ -43,7 +43,7 @@ def get_esp_frequency_control_PBP() -> float:
 
 
 def get_gaslift_cost() -> int:
-    return ceil((gaslift_energy / 3_600_000) * e_price * get_barrels_per_year())
+    return ceil((gaslift_energy / 3_600_000) * e_price * get_barrels_per_period(365))
 
 
 def get_gaslift_PBP() -> float:
@@ -93,7 +93,8 @@ def get_gaslift_PI(t: int = 1) -> float:
 def get_esp_frequency_control_PI(t: int = 1) -> float:
     return 1 + get_esp_frequency_control_NPV(t) / esp_frequency_control_price
 
-print('БЕЗ УЧЕТА ПАДЕНИЯ ДЕБИТА')
+
+print('С УЧЕТОМ ПАДЕНИЯ ДЕБИТА')
 print('PBP ЭЦН с частотным регулированием:', get_esp_frequency_control_PBP())
 print('DPBP ЭЦН с частотным регулированием:', get_esp_frequency_control_DPBP())
 print('NPV ЭЦН с частотным регулированием:', get_esp_frequency_control_NPV())
@@ -103,3 +104,6 @@ print('PBP Газлифтной системы:', get_gaslift_PBP())
 print('DPBP Газлифтной системы:', get_gaslift_DPBP())
 print('NPV ЭЦН Газлифтной системы:', get_gaslift_NPV())
 print('PI ЭЦН Газлифтной системы:', get_gaslift_PI(16))
+print('Дебит ДО/ПОСЛЕ перерасчета по формуле ДЮПЮИ')
+print(get_barrels_per_year())
+print(10_000 * 365)
