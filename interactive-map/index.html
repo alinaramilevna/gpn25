@@ -4,64 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Карта нефтепровода</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <style>
         #map { height: 600px; width: 100%; }
     </style>
 </head>
 <body>
-    <h2>Маршрут транспортировки нефти</h2>
-    <div id="map"></div>
+<h2>Маршрут транспортировки нефти</h2>
+<div id="map"></div>
 
-    <script>
-        var map = L.map('map').setView([58, 70], 5);
+<script>
+    var map = L.map('map').setView([58, 70], 5);
 
-        // базовый слой OpenStreetMap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+    // базовый слой OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
 
-        // ключевые точки
-        var priobskoye = [61.27, 71.28];
-        var omsk_npz = [54.94, 73.39];
-        var moscow_npz = [55.72, 37.77];
 
-        // промежуточные точки
-        var tuimazy = [54.6, 53.7];
-        var novosibirsk = [55.0, 82.9];
-        var ust_balyk = [59.0, 72.9];
-        var kurgan = [55.45, 65.35];
-        var ufa = [54.73, 55.97];
-        var almetyevsk = [54.9, 52.3];
+   // Начальная точка
+var priobskoye = [61.0500, 72.5167]; // Приобское месторождение
 
-        L.marker(priobskoye).addTo(map).bindPopup("Приобское месторождение");
-        L.marker(omsk_npz).addTo(map).bindPopup("Омский НПЗ");
-        L.marker(moscow_npz).addTo(map).bindPopup("Московский НПЗ");
 
-        // линия нефтепровода Туймазы-Омск-Новосибирск (до Омского НПЗ)
-        var pipelineToOmsk = L.polyline([
-            priobskoye,
-            ust_balyk,
-            novosibirsk,
-            omsk_npz
-        ], {
-            color: 'red',
-            weight: 4
-        }).addTo(map);
+// Промежуточные точки
+var ust_balyk = [61.0500, 72.5167]; // Начало нефтепровода
+var pyt_yakh = [60.7500, 72.9000]; // Промежуточная точка
+var nefteyugansk = [61.1000, 72.6000]; // Важный нефтяной узел
+var surgut = [61.2500, 73.4300]; // Крупный центр транспортировки нефти
+var nizhnevartovsk = [60.9400, 76.5500]; // Один из крупнейших узлов
+var strezhevoy = [60.7330, 77.5800]; // Развязка маршрута
+var kyshtovka = [55.8700, 76.6300]; // Промежуточный пункт
+var tatarsk = [55.2000, 75.9700]; // Близко к Омской области
+var lubinsky_rayon = [55.1500, 73.2500]; // Финальный участок маршрута
 
-        // линия нефтепровода Усть-Балык — Курган — Уфа — Альметьевск (до Московского НПЗ)
-        var pipelineToMoscow = L.polyline([
-            priobskoye,
-            ust_balyk,
-            kurgan,
-            ufa,
-            almetyevsk,
-            moscow_npz
-        ], {
-            color: 'blue',
-            weight: 4
-        }).addTo(map);
-    </script>
+// Известные станции
+var nps_abatskaya = [56.2564, 70.5822]; // НПС Абатская
+var nps_voznesenka = [56.7239, 69.6881]; // НПС Вознесенка
+
+// Конечные точки
+var omsk_npz = [54.9400, 73.4300]; // Омский НПЗ
+var almetyevsk = [54.8920, 52.2960]; // Альметьевск, Татарстан
+var yaroslavl = [57.6265, 39.8773]; // Ярославль
+var moscow_npz = [55.7100, 37.5300]; // Московский НПЗ
+
+// Добавление маркеров на карту
+L.marker(ust_balyk).addTo(map).bindPopup("Приобское месторождение");
+L.marker(omsk_npz).addTo(map).bindPopup("Омский НПЗ");
+L.marker(almetyevsk).addTo(map).bindPopup("Альметьевск");
+L.marker(yaroslavl).addTo(map).bindPopup("Ярославль");
+L.marker(moscow_npz).addTo(map).bindPopup("Московский НПЗ");
+
+// Линия нефтепровода
+var pipelineToMoscow = L.polyline([
+    ust_balyk,
+    pyt_yakh,
+    nefteyugansk,
+    surgut,
+    nizhnevartovsk,
+    strezhevoy,
+    kyshtovka,
+    tatarsk,
+    lubinsky_rayon,
+    almetyevsk,
+    yaroslavl,
+    moscow_npz
+], {
+    color: 'blue',
+    weight: 4
+}).addTo(map);
+
+</script>
 </body>
 </html>

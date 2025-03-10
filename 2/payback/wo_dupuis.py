@@ -72,11 +72,17 @@ def get_esp_frequency_control_DPBP() -> float:
 
 
 def get_gaslift_NPV(t: int = 1) -> float:
-    return (get_electric_submersible_pumps_cost() - get_gaslift_cost()) / (1 + discounting) ** t
+    npv = 0
+    for year in range(1, t + 1):
+        npv += (get_electric_submersible_pumps_cost() - get_gaslift_cost()) / (1 + discounting) ** year
+    return npv
 
 
 def get_esp_frequency_control_NPV(t: int = 1) -> float:
-    return (get_electric_submersible_pumps_cost() - get_esp_frequency_control_cost()) / (1 + discounting) ** t
+    npv = 0
+    for year in range(1, t + 1):
+        npv += (get_electric_submersible_pumps_cost() - get_esp_frequency_control_cost()) / (1 + discounting) ** year
+    return npv
 
 
 # ------------------------------------------------------
@@ -93,6 +99,7 @@ def get_gaslift_PI(t: int = 1) -> float:
 def get_esp_frequency_control_PI(t: int = 1) -> float:
     return 1 + get_esp_frequency_control_NPV(t) / esp_frequency_control_price
 
+
 print('БЕЗ УЧЕТА ПАДЕНИЯ ДЕБИТА')
 print('PBP ЭЦН с частотным регулированием:', get_esp_frequency_control_PBP())
 print('DPBP ЭЦН с частотным регулированием:', get_esp_frequency_control_DPBP())
@@ -101,5 +108,5 @@ print('PI ЭЦН с частотным регулированием:', get_esp_f
 print('----------------------------------------------------------------------------')
 print('PBP Газлифтной системы:', get_gaslift_PBP())
 print('DPBP Газлифтной системы:', get_gaslift_DPBP())
-print('NPV ЭЦН Газлифтной системы:', get_gaslift_NPV())
-print('PI ЭЦН Газлифтной системы:', get_gaslift_PI(16))
+print('NPV Газлифтной системы:', get_gaslift_NPV())
+print('PI Газлифтной системы:', get_gaslift_PI(16))
