@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/2/payback/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/2/payback/tools.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2/payback/with_dupuis.py" beforeDir="false" afterPath="$PROJECT_DIR$/2/payback/with_dupuis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2/payback/wo_dupuis.py" beforeDir="false" afterPath="$PROJECT_DIR$/2/payback/wo_dupuis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive-map/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/interactive-map/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -204,6 +203,17 @@
     </task>
     <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit/add metrics w/o falling debit" />
