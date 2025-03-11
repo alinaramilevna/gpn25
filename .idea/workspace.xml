@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="added interactive map skeleton">
+    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2/payback/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/2/payback/tools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2/payback/with_dupuis.py" beforeDir="false" afterPath="$PROJECT_DIR$/2/payback/with_dupuis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2/payback/wo_dupuis.py" beforeDir="false" afterPath="$PROJECT_DIR$/2/payback/wo_dupuis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/payback/with_dupuis.py" beforeDir="false" afterPath="$PROJECT_DIR$/2/payback/with_arps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/payback/wo_dupuis.py" beforeDir="false" afterPath="$PROJECT_DIR$/2/payback/wo_arps.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,24 +37,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.consts.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tools.executor&quot;: &quot;Run&quot;,
-    &quot;Python.with_dupuis.executor&quot;: &quot;Run&quot;,
-    &quot;Python.wo_dupuis.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/user/PycharmProjects/GPN/1&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.consts.executor": "Run",
+    "Python.tools.executor": "Run",
+    "Python.with_arps.executor": "Run",
+    "Python.with_dupuis.executor": "Run",
+    "Python.wo_dupuis.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/user/PycharmProjects/GPN/1"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.with_dupuis">
+  <component name="RunManager" selected="Python.with_arps">
     <configuration name="consts" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GPN" />
       <option name="ENV_FILES" value="" />
@@ -100,7 +100,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="with_dupuis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="with_arps" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GPN" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -113,7 +113,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2/payback/with_dupuis.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2/payback/with_arps.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,7 +122,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="wo_dupuis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="wo_arps" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GPN" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -135,7 +135,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2/payback/wo_dupuis.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2/payback/wo_arps.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,8 +146,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.with_dupuis" />
-        <item itemvalue="Python.wo_dupuis" />
+        <item itemvalue="Python.with_arps" />
+        <item itemvalue="Python.wo_arps" />
         <item itemvalue="Python.tools" />
         <item itemvalue="Python.consts" />
       </list>
@@ -201,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741547043487</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1741672408634</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1741672408634</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,7 +217,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -220,6 +240,7 @@
     <MESSAGE value="added energy-calculator site" />
     <MESSAGE value="added 1 tasks (excel table by Maria)" />
     <MESSAGE value="added interactive map skeleton" />
-    <option name="LAST_COMMIT_MESSAGE" value="added interactive map skeleton" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
 </project>
