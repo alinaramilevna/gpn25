@@ -5,16 +5,16 @@ from math import ceil
 
 from consts import electric_submersible_pumps_energy, e_price, esp_frequency_control_energy, \
     esp_frequency_control_price, gaslift_energy, gaslift_price, discounting
-from tools import get_daily_by_dupuis, get_sum_by_year_by_dupuis, get_curr_debit_by_dupuis
+from tools import get_daily_by_arps, get_sum_by_year_by_arps, get_curr_debit_by_arps
 
 
 def get_barrels_per_year() -> float:
     # возьмем 365 дней в году
-    return sum([get_daily_by_dupuis(t) for t in range(1, 366)])
+    return sum([get_daily_by_arps(t) for t in range(1, 366)])
 
 
 def get_barrels_per_period(t) -> float:
-    return sum([get_daily_by_dupuis(i) for i in range(1, t + 1)])
+    return sum([get_daily_by_arps(i) for i in range(1, t + 1)])
 
 
 # ------------------------------------------------------
@@ -23,7 +23,7 @@ def get_barrels_per_period(t) -> float:
 def get_electric_submersible_pumps_cost(year: int = 1) -> int:
     # 1. Переводим Дж в кВт·ч (1 кВт·ч = 3 600 000 Дж)
     # 2. Умножаем на стоимость электроэнергии
-    return ceil((electric_submersible_pumps_energy / 3_600_000) * e_price * get_sum_by_year_by_dupuis(year))
+    return ceil((electric_submersible_pumps_energy / 3_600_000) * e_price * get_sum_by_year_by_arps(year))
 
 
 def get_electric_submersible_pumps_PBP() -> float:
@@ -34,7 +34,7 @@ def get_electric_submersible_pumps_PBP() -> float:
 # ------------------------------------------------------
 
 def get_esp_frequency_control_cost(year: int = 1) -> int:
-    return ceil((esp_frequency_control_energy / 3_600_000) * e_price * get_sum_by_year_by_dupuis(year))
+    return ceil((esp_frequency_control_energy / 3_600_000) * e_price * get_sum_by_year_by_arps(year))
 
 
 def get_esp_frequency_control_PBP() -> float:
@@ -43,7 +43,7 @@ def get_esp_frequency_control_PBP() -> float:
 
 
 def get_gaslift_cost(year: int = 1) -> int:
-    return ceil((gaslift_energy / 3_600_000) * e_price * get_sum_by_year_by_dupuis(year))
+    return ceil((gaslift_energy / 3_600_000) * e_price * get_sum_by_year_by_arps(year))
 
 
 def get_gaslift_PBP() -> float:
@@ -75,8 +75,8 @@ def get_gaslift_NPV(t: int = 1) -> float:
     npv = 0
     for year in range(1, t + 1):
         electric_submersible_pumps_cost = ceil(
-            (electric_submersible_pumps_energy / 3_600_000) * e_price * get_curr_debit_by_dupuis(year))
-        gaslift_cost = ceil((gaslift_energy / 3_600_000) * e_price * get_curr_debit_by_dupuis(year))
+            (electric_submersible_pumps_energy / 3_600_000) * e_price * get_curr_debit_by_arps(year))
+        gaslift_cost = ceil((gaslift_energy / 3_600_000) * e_price * get_curr_debit_by_arps(year))
         npv += (electric_submersible_pumps_cost - gaslift_cost) / (1 + discounting) ** year
     return npv
 
@@ -85,9 +85,9 @@ def get_esp_frequency_control_NPV(t: int = 1) -> float:
     npv = 0
     for year in range(1, t + 1):
         electric_submersible_pumps_cost = ceil(
-            (electric_submersible_pumps_energy / 3_600_000) * e_price * get_curr_debit_by_dupuis(year))
+            (electric_submersible_pumps_energy / 3_600_000) * e_price * get_curr_debit_by_arps(year))
         esp_frequency_control_cost = ceil(
-            (esp_frequency_control_energy / 3_600_000) * e_price * get_curr_debit_by_dupuis(year))
+            (esp_frequency_control_energy / 3_600_000) * e_price * get_curr_debit_by_arps(year))
         npv += (electric_submersible_pumps_cost - esp_frequency_control_cost) / (1 + discounting) ** year
     return npv
 

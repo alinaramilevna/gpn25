@@ -1,4 +1,4 @@
-def get_daily_by_dupuis(t: int, qi: float = 10_000, di: float = 0.1, days: int = 365) -> float:
+def get_daily_by_arps(t: int, qi: float = 10_000, di: float = 0.1, days: int = 365) -> float:
     """
     :param t: Номер дня (от 1 и далее)
     :param qi: Начальный дебит (баррелей в день)
@@ -11,7 +11,7 @@ def get_daily_by_dupuis(t: int, qi: float = 10_000, di: float = 0.1, days: int =
     return max(qt, 0)
 
 
-def get_sum_by_year_by_dupuis(t: int, qi: float = 10_000, di: float = 0.1) -> float:
+def get_sum_by_year_by_arps(t: int, qi: float = 10_000, di: float = 0.1) -> float:
     s = 0
     curr_debit = qi * 365
     for year in range(1, t + 1):
@@ -22,7 +22,7 @@ def get_sum_by_year_by_dupuis(t: int, qi: float = 10_000, di: float = 0.1) -> fl
     return s
 
 
-def get_curr_debit_by_dupuis(t: int, qi: float = 10_000, di: float = 0.1) -> float:
+def get_curr_debit_by_arps(t: int, qi: float = 10_000, di: float = 0.1) -> float:
     curr_debit = qi * 365
     for year in range(1, t + 1):
         qt = curr_debit * (1 - di)
