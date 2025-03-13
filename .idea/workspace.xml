@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/3/umntalent.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="deleted interactive map">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,11 +46,13 @@
     &quot;Python.wo_dupuis.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/user/PycharmProjects/GPN/3&quot;
+    &quot;last_opened_file_path&quot;: &quot;/Users/user/PycharmProjects/GPN/energy-calculator&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/energy-calculator" />
+      <recent name="$PROJECT_DIR$/energy-calculator/app" />
       <recent name="$PROJECT_DIR$/3" />
       <recent name="$PROJECT_DIR$/1" />
     </key>
@@ -218,7 +219,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741672795360</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update model in 3rd task">
+      <option name="closed" value="true" />
+      <created>1741712653030</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1741712653031</updated>
+    </task>
+    <task id="LOCAL-00008" summary="deleted interactive map">
+      <option name="closed" value="true" />
+      <created>1741720265914</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1741720265914</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -250,6 +267,8 @@
     <MESSAGE value="added 1 tasks (excel table by Maria)" />
     <MESSAGE value="added interactive map skeleton" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="update model in 3rd task" />
+    <MESSAGE value="deleted interactive map" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted interactive map" />
   </component>
 </project>
