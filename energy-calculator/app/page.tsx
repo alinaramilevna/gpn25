@@ -1,32 +1,64 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-
-// Регистрируем нужные модули для Chart.js
+// Регистрируем модули Chart.js
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-// Динамический импорт графика с отключенным SSR
+// Динамический импорт графика с отключенным SSR и заглушкой
 const Line = dynamic(() => import("react-chartjs-2").then((mod) => mod.Line), {
   ssr: false,
+  loading: () => <p className="text-center">Загрузка графика...</p>,
 });
 
 export default function EnergyCalculator() {
+  const [chartReady, setChartReady] = useState(false);
   const [initialConsumption, setInitialConsumption] = useState(10000);
   const [years, setYears] = useState(10);
   const [rateIncrease, setRateIncrease] = useState(15);
   const [efficiency, setEfficiency] = useState(0.05);
   const [energyPrice, setEnergyPrice] = useState(3);
+  const [chartData, setChartData] = useState(null);
 
-  const data = Array.from({ length: years }, (_, t) => ({
-    year: t + 1,
-    consumption: initialConsumption * Math.pow(1 - efficiency, t),
-  }));
+  useEffect(() => {
+    setChartReady(true);
+  }, []);
+
+  useEffect(() => {
+    const data = Array.from({ length: years }, (_, t) => ({
+      year: t + 1,
+      consumption: initialConsumption * Math.pow(1 - efficiency, t),
+    }));
+
+    setChartData({
+      labels: data.map((d) => `Год ${d.year}`),
+      datasets: [
+        {
+          label: "Энергопотребление (МДж)",
+          data: data.map((d) => d.consumption),
+          borderColor: "#ff3b30",
+          backgroundColor: "rgba(255, 59, 48, 0.2)",
+          tension: 0.3,
+        },
+      ],
+    });
+
+    console.log("Генерируемые данные для графика:", data);
+  }, [initialConsumption, years, efficiency]);
 
   const calculateSavings = () => {
     let totalSavings = 0;
@@ -53,27 +85,14 @@ export default function EnergyCalculator() {
     return totalMonetarySavings.toFixed(2);
   };
 
-  const chartData = {
-    labels: data.map((d) => `Год ${d.year}`),
-    datasets: [
-      {
-        label: "Энергопотребление (МДж)",
-        data: data.map((d) => d.consumption),
-        borderColor: "#ff3b30",
-        backgroundColor: "rgba(255, 59, 48, 0.2)",
-        tension: 0.3,
-      },
-    ],
-  };
-
   const chartOptions = {
-  responsive: true,
-  maintainAspectRatio: false,
-  scales: {
-    x: { type: "category" },
-    y: { beginAtZero: true },
-  },
-};
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { type: "category" },
+      y: { beginAtZero: true },
+    },
+  };
 
   return (
     <div className="min-h-screen bg-white text-black flex flex-col items-center p-6">
@@ -137,7 +156,7 @@ export default function EnergyCalculator() {
       </div>
 
       <div className="w-full max-w-2xl mt-6">
-        {Line && <Line data={chartData} options={chartOptions} />}
+        {chartReady && chartData && <Line data={chartData} options={chartOptions} />}
       </div>
 
       <div className="mt-6">
