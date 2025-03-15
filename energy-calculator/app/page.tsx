@@ -41,7 +41,14 @@ export default function EnergyCalculator() {
       };
     });
 
+    // Логируем данные для графика
     console.log("📊 Проверка данных для графика:", data);
+
+    // Проверим, есть ли некорректные данные
+    const invalidData = data.some((d) => d.consumption === 0);
+    if (invalidData) {
+      console.error("Ошибка: Есть некорректные данные в графике (0 или NaN)");
+    }
 
     setChartData({
       labels: data.map((d) => `Год ${d.year}`),
@@ -51,7 +58,7 @@ export default function EnergyCalculator() {
           data: data.map((d) => d.consumption),
           borderColor: "#ff3b30",
           backgroundColor: "rgba(255, 59, 48, 0.2)",
-          tension: 0.4, // Возвращаем плавность
+          tension: 0, // Убираем или уменьшаем напряжение
           pointRadius: 3, // Делаем точки видимыми
           pointBackgroundColor: "#ff3b30",
           pointBorderColor: "#fff",
@@ -145,7 +152,7 @@ export default function EnergyCalculator() {
       <div className="w-full max-w-2xl mt-6">
         {chartData ? (
           <>
-            {console.log("🚀 Финальные данные для графика:", chartData)}
+            {console.log("Финальные данные для графика:", chartData)}
             <Line data={chartData} options={chartOptions} />
           </>
         ) : (
