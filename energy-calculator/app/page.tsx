@@ -58,7 +58,6 @@ export default function EnergyCalculator() {
           data: data.map((d) => d.consumption),
           borderColor: "#ff3b30",
           backgroundColor: "rgba(255, 59, 48, 0.2)",
-          tension: 0, // Убираем или уменьшаем напряжение
           pointRadius: 3, // Делаем точки видимыми
           pointBackgroundColor: "#ff3b30",
           pointBorderColor: "#fff",
