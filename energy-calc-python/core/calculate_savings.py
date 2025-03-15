@@ -6,7 +6,7 @@ def get_savings(start_energy: int,
                 time: int,
                 energy_low_coeff: float,
                 start_price: float,
-                price_up_coef: float) -> tuple[float, float]:
+                price_up_coeff: float) -> tuple[float, float]:
     '''
 
     :param start_energy: Energy costs at the beginning of the production (МДж)
@@ -35,7 +35,6 @@ def get_savings(start_energy: int,
     for i in range(1, len(energy_expenses)):
         current_savings = (energy_expenses[i - 1] - energy_expenses[i])
         energy += current_savings
-        print((1 + price_up_coef) ** (i - 1))
-        money += current_savings * (start_price * (1 + price_up_coef) ** (i - 1))
+        money += current_savings * (start_price * (1 + price_up_coeff) ** (i - 1))
 
     return energy, money
