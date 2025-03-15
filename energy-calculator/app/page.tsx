@@ -1,60 +1,57 @@
-"use client"; // ← Это обязательно!
+"use client";
 
 import { useState } from "react";
-import { Line } from "react-chartjs-2";
+import dynamic from "next/dynamic";
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import "chart.js/auto";
+
+// Регистрируем нужные модули для Chart.js
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+
+// Динамический импорт графика с отключенным SSR
+const Line = dynamic(() => import("react-chartjs-2").then((mod) => mod.Line), {
+  ssr: false,
+});
 
 export default function EnergyCalculator() {
-  const [initialConsumption, setInitialConsumption] = useState(10000); // МДж
+  const [initialConsumption, setInitialConsumption] = useState(10000);
   const [years, setYears] = useState(10);
-  const [tariff, setTariff] = useState(5); // руб/кВт*ч
-  const [rateIncrease, setRateIncrease] = useState(15); // %
-  const [efficiency, setEfficiency] = useState(0.05); // коэффициент ежегодного снижения (например, 5% или 0.05)
-  const [energyPrice, setEnergyPrice] = useState(3); // начальная цена на электроэнергию (руб/кВт*ч)
+  const [rateIncrease, setRateIncrease] = useState(15);
+  const [efficiency, setEfficiency] = useState(0.05);
+  const [energyPrice, setEnergyPrice] = useState(3);
 
-  // Вычисляем данные для графика и совокупной экономии
-  const data = Array.from({ length: years }, (_, t) => {
-    const consumption = initialConsumption * Math.pow(1 - efficiency, t);
-    return {
-      year: t + 1,
-      consumption,
-    };
-  });
+  const data = Array.from({ length: years }, (_, t) => ({
+    year: t + 1,
+    consumption: initialConsumption * Math.pow(1 - efficiency, t),
+  }));
 
-  // Формула для расчета совокупной экономии в МДж
   const calculateSavings = () => {
     let totalSavings = 0;
     for (let t = 1; t < years; t++) {
-      const previousConsumption = initialConsumption * Math.pow(1 - efficiency, t - 1);
-      const currentConsumption = initialConsumption * Math.pow(1 - efficiency, t);
-      totalSavings += previousConsumption - currentConsumption;
+      totalSavings +=
+        initialConsumption * Math.pow(1 - efficiency, t - 1) -
+        initialConsumption * Math.pow(1 - efficiency, t);
     }
-    return totalSavings.toFixed(2); // Совокупная экономия в МДж
+    return totalSavings.toFixed(2);
   };
 
-  // Формула для расчета совокупной экономии в деньгах (с учетом роста тарифа)
   const calculateMonetarySavings = () => {
     let totalMonetarySavings = 0;
-    let currentTariff = energyPrice; // Начальная цена на электроэнергию
+    let currentTariff = energyPrice;
 
     for (let t = 1; t < years; t++) {
-      const previousConsumption = initialConsumption * Math.pow(1 - efficiency, t - 1);
-      const currentConsumption = initialConsumption * Math.pow(1 - efficiency, t);
-
-      // Вычисляем экономию в деньгах за год с учетом тарифа
-      const yearlySavings = (previousConsumption - currentConsumption) * currentTariff;
+      const yearlySavings =
+        (initialConsumption * Math.pow(1 - efficiency, t - 1) -
+          initialConsumption * Math.pow(1 - efficiency, t)) *
+        currentTariff;
       totalMonetarySavings += yearlySavings;
-
-      // Каждый год цена на электроэнергию растет на rateIncrease %
-      currentTariff *= (1 + rateIncrease / 100);
+      currentTariff *= 1 + rateIncrease / 100;
     }
-    return totalMonetarySavings.toFixed(2); // Совокупная экономия в деньгах
+    return totalMonetarySavings.toFixed(2);
   };
 
-  // Конфигурация графика
   const chartData = {
     labels: data.map((d) => `Год ${d.year}`),
     datasets: [
@@ -100,7 +97,7 @@ export default function EnergyCalculator() {
             <label>Коэффициент снижения энергопотребления (%)</label>
             <Input
               type="number"
-              value={efficiency * 100} // отобразить процент
+              value={efficiency * 100}
               onChange={(e) => setEfficiency(Number(e.target.value) / 100)}
             />
           </CardContent>
@@ -130,7 +127,7 @@ export default function EnergyCalculator() {
       </div>
 
       <div className="w-full max-w-2xl mt-6">
-        <Line data={chartData} />
+        {Line && <Line data={chartData} />}
       </div>
 
       <div className="mt-6">
