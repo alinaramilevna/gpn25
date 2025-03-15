@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="refactor page.tsx (added chartOptions)">
+    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="refactor page.tsx (added dynamic loading)">
       <change beforePath="$PROJECT_DIR$/energy-calculator/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/energy-calculator/app/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -290,7 +290,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742043599762</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="refactor page.tsx (added dynamic loading)">
+      <option name="closed" value="true" />
+      <created>1742044316724</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1742044316724</updated>
+    </task>
+    <task id="LOCAL-00014" summary="refactor page.tsx (added dynamic loading)">
+      <option name="closed" value="true" />
+      <created>1742044516104</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1742044516104</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -328,6 +344,7 @@
     <MESSAGE value="edit 1 task (switch dollars to rub)" />
     <MESSAGE value="refactor page.tsx (ssr: false to load charts)" />
     <MESSAGE value="refactor page.tsx (added chartOptions)" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor page.tsx (added chartOptions)" />
+    <MESSAGE value="refactor page.tsx (added dynamic loading)" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor page.tsx (added dynamic loading)" />
   </component>
 </project>

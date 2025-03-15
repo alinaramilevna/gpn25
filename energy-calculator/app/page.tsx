@@ -25,7 +25,6 @@ const Line = dynamic(() => import("react-chartjs-2").then((mod) => mod.Line), {
 });
 
 export default function EnergyCalculator() {
-  const [chartReady, setChartReady] = useState(false);
   const [initialConsumption, setInitialConsumption] = useState(10000);
   const [years, setYears] = useState(10);
   const [rateIncrease, setRateIncrease] = useState(15);
@@ -34,32 +33,29 @@ export default function EnergyCalculator() {
   const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
-    setChartReady(true);
-  }, []);
+    const data = Array.from({ length: years }, (_, t) => {
+      const consumption = initialConsumption * Math.pow(1 - efficiency, t);
+      return {
+        year: t + 1,
+        consumption: isNaN(consumption) || consumption < 0 ? 0 : consumption,
+      };
+    });
 
-  useEffect(() => {
-    const data = Array.from({ length: years }, (_, t) => ({
-      year: `Год ${t + 1}`,
-      consumption: isNaN(initialConsumption * Math.pow(1 - efficiency, t))
-        ? 0
-        : initialConsumption * Math.pow(1 - efficiency, t),
-    }));
-
-    console.log("📊 Данные для графика:", data);
+    console.log("📊 Проверка данных для графика:", data);
 
     setChartData({
-      labels: data.map((d) => d.year),
+      labels: data.map((d) => `Год ${d.year}`),
       datasets: [
         {
           label: "Энергопотребление (МДж)",
           data: data.map((d) => d.consumption),
           borderColor: "#ff3b30",
           backgroundColor: "rgba(255, 59, 48, 0.2)",
-          tension: 0, // Убрал плавность, чтобы избежать ошибок
-          pointRadius: 5, // Показываем точки
+          tension: 0.4, // Возвращаем плавность
+          pointRadius: 3, // Делаем точки видимыми
           pointBackgroundColor: "#ff3b30",
           pointBorderColor: "#fff",
-          fill: false, // Без заливки
+          fill: false,
         },
       ],
     });
@@ -70,14 +66,13 @@ export default function EnergyCalculator() {
     maintainAspectRatio: false,
     scales: {
       x: {
-        type: "category",
         title: {
           display: true,
           text: "Годы",
         },
       },
       y: {
-        beginAtZero: true,
+        beginAtZero: false,
         title: {
           display: true,
           text: "Энергопотребление (МДж)",
@@ -148,9 +143,9 @@ export default function EnergyCalculator() {
       </div>
 
       <div className="w-full max-w-2xl mt-6">
-        {chartReady && chartData ? (
+        {chartData ? (
           <>
-            {console.log("🚀 Итоговые данные для графика:", chartData)}
+            {console.log("🚀 Финальные данные для графика:", chartData)}
             <Line data={chartData} options={chartOptions} />
           </>
         ) : (
