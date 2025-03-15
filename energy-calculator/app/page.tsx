@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
+
 // Регистрируем нужные модули для Chart.js
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -64,6 +65,15 @@ export default function EnergyCalculator() {
       },
     ],
   };
+
+  const chartOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  scales: {
+    x: { type: "category" },
+    y: { beginAtZero: true },
+  },
+};
 
   return (
     <div className="min-h-screen bg-white text-black flex flex-col items-center p-6">
@@ -127,7 +137,7 @@ export default function EnergyCalculator() {
       </div>
 
       <div className="w-full max-w-2xl mt-6">
-        {Line && <Line data={chartData} />}
+        {Line && <Line data={chartData} options={chartOptions} />}
       </div>
 
       <div className="mt-6">

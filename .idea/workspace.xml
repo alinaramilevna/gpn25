@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="refactor">
+    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="refactor page.tsx (ssr: false to load charts)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/energy-calculator/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/energy-calculator/app/page.tsx" afterDir="false" />
     </list>
@@ -275,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741893378840</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="refactor page.tsx (ssr: false to load charts)">
+      <option name="closed" value="true" />
+      <created>1742042747160</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1742042747160</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -311,6 +319,7 @@
     <MESSAGE value="deleted interactive map" />
     <MESSAGE value="added readme" />
     <MESSAGE value="edit 1 task (switch dollars to rub)" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit 1 task (switch dollars to rub)" />
+    <MESSAGE value="refactor page.tsx (ssr: false to load charts)" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor page.tsx (ssr: false to load charts)" />
   </component>
 </project>
