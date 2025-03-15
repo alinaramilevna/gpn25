@@ -19,10 +19,9 @@ import { Button } from "@/components/ui/button";
 // Регистрируем модули Chart.js
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-// Динамический импорт графика с отключенным SSR и заглушкой
+// Динамический импорт графика с отключенным SSR
 const Line = dynamic(() => import("react-chartjs-2").then((mod) => mod.Line), {
   ssr: false,
-  loading: () => <p className="text-center">Загрузка графика...</p>,
 });
 
 export default function EnergyCalculator() {
@@ -40,57 +39,50 @@ export default function EnergyCalculator() {
 
   useEffect(() => {
     const data = Array.from({ length: years }, (_, t) => ({
-      year: t + 1,
-      consumption: initialConsumption * Math.pow(1 - efficiency, t),
+      year: `Год ${t + 1}`,
+      consumption: isNaN(initialConsumption * Math.pow(1 - efficiency, t))
+        ? 0
+        : initialConsumption * Math.pow(1 - efficiency, t),
     }));
 
+    console.log("📊 Данные для графика:", data);
+
     setChartData({
-      labels: data.map((d) => `Год ${d.year}`),
+      labels: data.map((d) => d.year),
       datasets: [
         {
           label: "Энергопотребление (МДж)",
           data: data.map((d) => d.consumption),
           borderColor: "#ff3b30",
           backgroundColor: "rgba(255, 59, 48, 0.2)",
-          tension: 0.3,
+          tension: 0, // Убрал плавность, чтобы избежать ошибок
+          pointRadius: 5, // Показываем точки
+          pointBackgroundColor: "#ff3b30",
+          pointBorderColor: "#fff",
+          fill: false, // Без заливки
         },
       ],
     });
-
-    console.log("Генерируемые данные для графика:", data);
   }, [initialConsumption, years, efficiency]);
-
-  const calculateSavings = () => {
-    let totalSavings = 0;
-    for (let t = 1; t < years; t++) {
-      totalSavings +=
-        initialConsumption * Math.pow(1 - efficiency, t - 1) -
-        initialConsumption * Math.pow(1 - efficiency, t);
-    }
-    return totalSavings.toFixed(2);
-  };
-
-  const calculateMonetarySavings = () => {
-    let totalMonetarySavings = 0;
-    let currentTariff = energyPrice;
-
-    for (let t = 1; t < years; t++) {
-      const yearlySavings =
-        (initialConsumption * Math.pow(1 - efficiency, t - 1) -
-          initialConsumption * Math.pow(1 - efficiency, t)) *
-        currentTariff;
-      totalMonetarySavings += yearlySavings;
-      currentTariff *= 1 + rateIncrease / 100;
-    }
-    return totalMonetarySavings.toFixed(2);
-  };
 
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
-      x: { type: "category" },
-      y: { beginAtZero: true },
+      x: {
+        type: "category",
+        title: {
+          display: true,
+          text: "Годы",
+        },
+      },
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: "Энергопотребление (МДж)",
+        },
+      },
     },
   };
 
@@ -156,17 +148,14 @@ export default function EnergyCalculator() {
       </div>
 
       <div className="w-full max-w-2xl mt-6">
-        {chartReady && chartData && <Line data={chartData} options={chartOptions} />}
-      </div>
-
-      <div className="mt-6">
-        <h2 className="text-xl font-semibold">Совокупная экономия в МДж</h2>
-        <p className="text-lg">Суммарная экономия за {years} лет: {calculateSavings()} МДж</p>
-      </div>
-
-      <div className="mt-6">
-        <h2 className="text-xl font-semibold">Совокупная экономия в деньгах</h2>
-        <p className="text-lg">Суммарная экономия за {years} лет: {calculateMonetarySavings()} руб</p>
+        {chartReady && chartData ? (
+          <>
+            {console.log("🚀 Итоговые данные для графика:", chartData)}
+            <Line data={chartData} options={chartOptions} />
+          </>
+        ) : (
+          <p className="text-center">⏳ Загрузка графика...</p>
+        )}
       </div>
 
       <Button className="mt-6 bg-black text-white px-4 py-2 rounded-lg shadow-md">
