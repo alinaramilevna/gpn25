@@ -1,40 +1,40 @@
-import uvicorn
-
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from flask import Flask, request, send_file, jsonify
+from flask_cors import CORS
 from core import get_savings, get_plot as get_img
 
-app = FastAPI(debug=True)
+app = Flask(__name__)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Включаем поддержку CORS
+CORS(app)
 
 
-@app.get('/api/savings')
-def main(start_energy: int,
-         time: int,
-         energy_low_coeff: float,
-         start_price: float,
-         price_up_coeff: float) -> dict:
-    # curl "http://127.0.0.1:8000/api/savings?start_energy=10000000&time=10&energy_low_coeff=0.07&start_price=5&price_up_coeff=0.09"
-    return {'savings': get_savings(start_energy, time, energy_low_coeff, start_price, price_up_coeff)}
+@app.route('/api/savings', methods=['GET'])
+def savings():
+    # Получаем параметры из запроса
+    start_energy = int(request.args.get('start_energy'))
+    time = int(request.args.get('time'))
+    energy_low_coeff = float(request.args.get('energy_low_coeff'))
+    start_price = float(request.args.get('start_price'))
+    price_up_coeff = float(request.args.get('price_up_coeff'))
+
+    savings = get_savings(start_energy, time, energy_low_coeff, start_price, price_up_coeff)
+
+    return jsonify({'savings': savings})
 
 
-@app.get('/api/plot')
-def get_plot(start_energy: int,
-             time: int,
-             energy_low_coeff: float):
+@app.route('/api/plot', methods=['GET'])
+def plot():
+    # Получаем параметры из запроса
+    start_energy = int(request.args.get('start_energy'))
+    time = int(request.args.get('time'))
+    energy_low_coeff = float(request.args.get('energy_low_coeff'))
+
+    # Получаем путь к изображению
     path = get_img(start_energy, time, energy_low_coeff)
-    return FileResponse(path, media_type="image/png")
+
+    # Отправляем изображение как файл
+    return send_file(path, mimetype='image/png')
 
 
 if __name__ == '__main__':
-    uvicorn.run(reload=True,
-                host='0.0.0.0',
-                app='app:app')
+    app.run(host='0.0.0.0', port=8000, debug=True)
