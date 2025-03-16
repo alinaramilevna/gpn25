@@ -4,31 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="initial v2">
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/app/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/app/globals.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/app/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/app/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/components.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/components/ui/button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/components/ui/card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/components/ui/input.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/lib/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/next.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/postcss.config.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/public/file.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/public/globe.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/public/next.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/public/vercel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/public/window.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/tsconfig.json" afterDir="false" />
+    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="edit /api prefix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/energy-calc-frontend/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/energy-calc-frontend/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/energy-calc-python/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/energy-calc-python/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/energy-calc-python/core/get_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/energy-calc-python/core/get_plots.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -364,7 +343,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742066475688</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added frontend">
+      <option name="closed" value="true" />
+      <created>1742117878622</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1742117878622</updated>
+    </task>
+    <task id="LOCAL-00019" summary="edit /api prefix">
+      <option name="closed" value="true" />
+      <created>1742119739500</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1742119739500</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -406,6 +401,8 @@
     <MESSAGE value="reset" />
     <MESSAGE value="initial commit (added fastapi template + core)" />
     <MESSAGE value="initial v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial v2" />
+    <MESSAGE value="added frontend" />
+    <MESSAGE value="edit /api prefix" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit /api prefix" />
   </component>
 </project>

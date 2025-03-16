@@ -16,14 +16,14 @@ export default function EnergyCalculator() {
 
   const fetchSavings = async () => {
     const res = await fetch(
-      `http://127.0.0.1:8000/api/savings?start_energy=${startEnergy}&time=${time}&energy_low_coeff=${energyLowCoeff}&start_price=${startPrice}&price_up_coeff=${priceUpCoeff}`
+      `http://176.108.240.204/api/savings?start_energy=${startEnergy}&time=${time}&energy_low_coeff=${energyLowCoeff}&start_price=${startPrice}&price_up_coeff=${priceUpCoeff}`
     );
     const data = await res.json();
     setSavings(data.savings);
   };
 
   const fetchPlot = async () => {
-    const imgUrl = `http://127.0.0.1:8000/api/plot?start_energy=${startEnergy}&time=${time}&energy_low_coeff=${energyLowCoeff}`;
+    const imgUrl = `http://176.108.240.204:8000/api/plot?start_energy=${startEnergy}&time=${time}&energy_low_coeff=${energyLowCoeff}`;
     setPlotUrl(imgUrl);
   };
 
