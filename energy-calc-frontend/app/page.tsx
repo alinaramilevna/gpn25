@@ -23,7 +23,7 @@ export default function EnergyCalculator() {
   };
 
   const fetchPlot = async () => {
-    const imgUrl = `http://176.108.240.204:8000/api/plot?start_energy=${startEnergy}&time=${time}&energy_low_coeff=${energyLowCoeff}`;
+    const imgUrl = `http://176.108.240.204/api/plot?start_energy=${startEnergy}&time=${time}&energy_low_coeff=${energyLowCoeff}`;
     setPlotUrl(imgUrl);
   };
 
