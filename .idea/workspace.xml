@@ -4,11 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="initial commit (added fastapi template + core)">
+    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="initial v2">
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/app/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/app/globals.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/app/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/app/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/components.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/components/ui/button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/components/ui/card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/components/ui/input.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/lib/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/next.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/postcss.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/public/file.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/public/globe.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/public/next.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/public/vercel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/public/window.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/energy-calc-frontend/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/energy-calc-python/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/energy-calc-python/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/energy-calc-python/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/energy-calc-python/core/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/energy-calc-python/core/calculate_savings.py" beforeDir="false" afterPath="$PROJECT_DIR$/energy-calc-python/core/calculate_savings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/energy-calc-python/core/get_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/energy-calc-python/core/get_plots.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,25 +60,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.app.executor": "Run",
-    "Python.calc.executor": "Debug",
-    "Python.calculate_savings.executor": "Run",
-    "Python.consts.executor": "Run",
-    "Python.get_graphs.executor": "Run",
-    "Python.get_plots.executor": "Run",
-    "Python.tools.executor": "Run",
-    "Python.with_arps.executor": "Run",
-    "Python.with_dupuis.executor": "Run",
-    "Python.wo_dupuis.executor": "Run",
-    "Python.вывывы.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/user/PycharmProjects/GPN/3"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.calc.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.calculate_savings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.consts.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_graphs.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_plots.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tools.executor&quot;: &quot;Run&quot;,
+    &quot;Python.with_arps.executor&quot;: &quot;Run&quot;,
+    &quot;Python.with_dupuis.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wo_dupuis.executor&quot;: &quot;Run&quot;,
+    &quot;Python.вывывы.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/user/PycharmProjects/GPN/3&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/3" />
@@ -336,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742065520342</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="initial v2">
+      <option name="closed" value="true" />
+      <created>1742066475688</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1742066475688</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,6 +405,7 @@
     <MESSAGE value="refactor page.tsx (added dynamic loading)" />
     <MESSAGE value="reset" />
     <MESSAGE value="initial commit (added fastapi template + core)" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit (added fastapi template + core)" />
+    <MESSAGE value="initial v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial v2" />
   </component>
 </project>
