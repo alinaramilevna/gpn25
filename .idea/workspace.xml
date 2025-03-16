@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="edit /api prefix">
+    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="Я НАШЛА БАГ СПАСИБО">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/energy-calc-frontend/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/energy-calc-frontend/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/energy-calc-python/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/energy-calc-python/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -359,7 +357,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742119739500</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="oh">
+      <option name="closed" value="true" />
+      <created>1742123839258</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1742123839258</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Я НАШЛА БАГ СПАСИБО">
+      <option name="closed" value="true" />
+      <created>1742125434176</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1742125434176</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -403,6 +417,8 @@
     <MESSAGE value="initial v2" />
     <MESSAGE value="added frontend" />
     <MESSAGE value="edit /api prefix" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit /api prefix" />
+    <MESSAGE value="oh" />
+    <MESSAGE value="Я НАШЛА БАГ СПАСИБО" />
+    <option name="LAST_COMMIT_MESSAGE" value="Я НАШЛА БАГ СПАСИБО" />
   </component>
 </project>
