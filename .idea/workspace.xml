@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="added video files">
-      <change afterPath="$PROJECT_DIR$/4/consts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="added 4 task" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -385,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742126812763</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="added 4 task">
+      <option name="closed" value="true" />
+      <created>1744563731078</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1744563731078</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -432,6 +436,7 @@
     <MESSAGE value="oh" />
     <MESSAGE value="Я НАШЛА БАГ СПАСИБО" />
     <MESSAGE value="added video files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added video files" />
+    <MESSAGE value="added 4 task" />
+    <option name="LAST_COMMIT_MESSAGE" value="added 4 task" />
   </component>
 </project>
