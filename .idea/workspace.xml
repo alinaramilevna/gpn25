@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="Я НАШЛА БАГ СПАСИБО">
+    <list default="true" id="622571e0-a8ed-47c8-8866-3a8c6e057382" name="Changes" comment="added video files">
+      <change afterPath="$PROJECT_DIR$/4/consts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,27 +39,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.app.executor&quot;: &quot;Run&quot;,
-    &quot;Python.calc.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.calculate_savings.executor&quot;: &quot;Run&quot;,
-    &quot;Python.consts.executor&quot;: &quot;Run&quot;,
-    &quot;Python.get_graphs.executor&quot;: &quot;Run&quot;,
-    &quot;Python.get_plots.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tools.executor&quot;: &quot;Run&quot;,
-    &quot;Python.with_arps.executor&quot;: &quot;Run&quot;,
-    &quot;Python.with_dupuis.executor&quot;: &quot;Run&quot;,
-    &quot;Python.wo_dupuis.executor&quot;: &quot;Run&quot;,
-    &quot;Python.вывывы.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/user/PycharmProjects/GPN/3&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.app.executor": "Run",
+    "Python.calc.executor": "Debug",
+    "Python.calculate_savings.executor": "Run",
+    "Python.consts.executor": "Run",
+    "Python.get_graphs.executor": "Run",
+    "Python.get_plots.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.tools.executor": "Run",
+    "Python.with_arps.executor": "Run",
+    "Python.with_dupuis.executor": "Run",
+    "Python.wo_dupuis.executor": "Run",
+    "Python.вывывы.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/user/PycharmProjects/GPN/4"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/4" />
       <recent name="$PROJECT_DIR$/3" />
       <recent name="$PROJECT_DIR$/energy-calculator" />
       <recent name="$PROJECT_DIR$/energy-calculator/app" />
@@ -68,7 +72,7 @@
       <recent name="$PROJECT_DIR$/3/deprecated" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.main">
     <configuration name="вывывы" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GPN" />
       <option name="ENV_FILES" value="" />
@@ -157,7 +161,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="with_arps" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GPN" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -166,11 +170,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2/payback" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/4" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2/payback/with_arps.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/4/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -181,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.get_plots" />
         <item itemvalue="Python.calculate_savings" />
         <item itemvalue="Python.вывывы" />
-        <item itemvalue="Python.with_arps" />
       </list>
     </recent_temporary>
   </component>
@@ -373,7 +377,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742125434176</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="added video files">
+      <option name="closed" value="true" />
+      <created>1742126812763</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1742126812763</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -419,6 +431,7 @@
     <MESSAGE value="edit /api prefix" />
     <MESSAGE value="oh" />
     <MESSAGE value="Я НАШЛА БАГ СПАСИБО" />
-    <option name="LAST_COMMIT_MESSAGE" value="Я НАШЛА БАГ СПАСИБО" />
+    <MESSAGE value="added video files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added video files" />
   </component>
 </project>
