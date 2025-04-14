@@ -39,7 +39,7 @@ years = 5
 oil_prices = list(range(60, 91))  # 60–90 USD/баррель
 efficiency_levels = [0.05, 0.1, 0.2]  # 5%, 10%, 20% снижения
 
-# по вертикали — цена на нефть, по горизонтали — эффективность
+# по вертикали - цена на нефть, по горизонтали - эффективность
 matrix_pbp = []
 matrix_dpbp = []
 matrix_npv = []
@@ -53,7 +53,7 @@ for price in oil_prices:
 
     for eff in efficiency_levels:
         savings_75 = economy_in_usd_75[eff]
-        savings_scaled = savings_75 * (price / 75)  # Пропорциональная корректировка под цену
+        savings_scaled = savings_75 * (price / 75)  # пропорциональная корректировка под цену
 
         investment = modern_cost[eff]
 
