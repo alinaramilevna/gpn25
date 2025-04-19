@@ -18,3 +18,12 @@ modern_cost = {
     0.1: 20_000_000,
     0.2: 40_000_000
 }
+
+# это за кВт*ч
+energy_prices_kVt = [4.134, 4.258, 4.356, 4.439, 4.496, 4.546]
+# это за Мдж
+energy_prices_MDz = [i / 3.6 for i in energy_prices_kVt]
+
+percent_5_cost = 10 ** 7 * 82
+percent_10_cost = 2 * 10 ** 7 * 82
+percent_20_cost = 4 * 10 ** 7 * 82

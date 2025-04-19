@@ -54,18 +54,6 @@ def get_gaslift_PBP() -> float:
 # ------------------------------------------------------
 
 
-def get_gaslift_DPBP() -> float:
-    discounting_savings = (get_electric_submersible_pumps_cost() - get_gaslift_cost()) / (1 + discounting)
-    return gaslift_price / discounting_savings
-
-
-def get_esp_frequency_control_DPBP() -> float:
-    discounting_savings = (get_electric_submersible_pumps_cost() - get_esp_frequency_control_cost()) / (1 + discounting)
-    return esp_frequency_control_price / discounting_savings
-
-
-# ------------------------------------------------------
-
 '''
 РАССЧИТАЕМ ДИСКОНТИРОВАННЫЙ ДЕНЕЖНЫЙ ПОТОК
 '''
